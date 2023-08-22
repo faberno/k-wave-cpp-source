@@ -106,9 +106,6 @@ SZIP_DIR = $(EBROOTSZIP)
 # Git hash of release 1.3
 GIT_HASH       = -D__KWAVE_GIT_HASH__=\"468dc31c2842a7df5f2a07c3a13c16c9b0b2b770\"
 
-# Replace tabs by spaces
-.RECIPEPREFIX := $(.RECIPEPREFIX)
-
 # What CUDA GPU architectures to include in the binary
 CUDA_ARCH = --generate-code arch=compute_50,code=sm_50 \
             --generate-code arch=compute_52,code=sm_52 \
@@ -314,17 +311,17 @@ all: $(TARGET)
 
 # Link target
 $(TARGET): $(DEPENDENCIES)
-  $(CXX) $(LDFLAGS) $(DEPENDENCIES) $(LDLIBS) -o $@
+	$(CXX) $(LDFLAGS) $(DEPENDENCIES) $(LDLIBS) -o $@
 
 # Compile CPU units
 %.o: %.cpp
-  $(CXX) $(CXXFLAGS) -o $@ -c $<
+	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 # Compile CUDA units
 %.o: %.cu
-  $(CXX) $(CXXFLAGS) $(CUDA_ARCH) -o $@ -c $<
+	$(CXX) $(CXXFLAGS) $(CUDA_ARCH) -o $@ -c $<
 
 # Clean repository
 .PHONY: clean
 clean:
-  rm -f $(DEPENDENCIES) $(TARGET)
+	rm -f $(DEPENDENCIES) $(TARGET)
