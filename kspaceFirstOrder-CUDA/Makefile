@@ -107,14 +107,10 @@ SZIP_DIR = $(EBROOTSZIP)
 GIT_HASH       = -D__KWAVE_GIT_HASH__=\"468dc31c2842a7df5f2a07c3a13c16c9b0b2b770\"
 
 # Replace tabs by spaces
-.RECIPEPREFIX += 
+.RECIPEPREFIX := $(.RECIPEPREFIX)
 
 # What CUDA GPU architectures to include in the binary
-CUDA_ARCH = --generate-code arch=compute_30,code=sm_30 \
-            --generate-code arch=compute_32,code=sm_32 \
-            --generate-code arch=compute_35,code=sm_35 \
-            --generate-code arch=compute_37,code=sm_37 \
-            --generate-code arch=compute_50,code=sm_50 \
+CUDA_ARCH = --generate-code arch=compute_50,code=sm_50 \
             --generate-code arch=compute_52,code=sm_52 \
             --generate-code arch=compute_53,code=sm_53 \
             --generate-code arch=compute_60,code=sm_60 \
@@ -122,7 +118,11 @@ CUDA_ARCH = --generate-code arch=compute_30,code=sm_30 \
             --generate-code arch=compute_62,code=sm_62 \
             --generate-code arch=compute_70,code=sm_70 \
             --generate-code arch=compute_72,code=sm_72 \
-            --generate-code arch=compute_75,code=sm_75
+            --generate-code arch=compute_75,code=sm_80 \
+            --generate-code arch=compute_75,code=sm_86 \
+            --generate-code arch=compute_75,code=sm_87 \
+            --generate-code arch=compute_75,code=sm_89 \
+            --generate-code arch=compute_75,code=sm_90 \
 
 # What libraries to link and how
 ifeq ($(LINKING), STATIC)

@@ -106,7 +106,7 @@ CPU_ARCH = native
 GIT_HASH       = -D__KWAVE_GIT_HASH__=\"0ba023063e3f29685e1e346f56883378d961f9f1\"
 
 # Replace tabs by spaces
-.RECIPEPREFIX += 
+.RECIPEPREFIX := $(.RECIPEPREFIX)
 
 ################################ GNU g++ + FFTW ################################
 ifeq ($(COMPILER), GNU)
