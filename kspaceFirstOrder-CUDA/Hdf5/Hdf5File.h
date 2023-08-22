@@ -461,6 +461,7 @@
 #ifndef HDF5_FILE_H
 #define HDF5_FILE_H
 
+#include <string>
 #include <hdf5.h>
 #include <hdf5_hl.h>
 #include <map>
